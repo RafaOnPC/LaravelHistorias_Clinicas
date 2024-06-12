@@ -297,31 +297,11 @@ return [
         
         ['header' => 'Administración-Clinica'],
         [
-            'text' => 'Medicos',
-            'route' => 'doctor.index',
-            'icon' => 'fas fa-fw fa-user',
-            'can' => 'doctor.index'
-        ],
-        [
             'text' => 'Pacientes',
             'route' => 'paciente.index',
             'icon' => 'fas fa-fw fa-user',
             'can' => 'paciente.index'
-        ],
-
-        [
-            'text' => 'Historias Clinicas',
-            'route' => 'clinica.index',
-            'icon' => 'fas fa-fw fa-user',
-            'can' => 'clinica.index'
-        ],
-
-        [
-            'text' => 'Inicie Sesion',
-            'route' => 'login',
-            'icon' => 'fas fa-fw fa-user',
-            'can' => 'guest.index'
-        ],
+        ]
         
     ],
 

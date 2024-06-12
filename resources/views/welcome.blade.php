@@ -33,8 +33,6 @@
                 <div class="card-body">
                     <p>Regístrate como usuario para acceder a todas las funcionalidades del sistema.</p>
                     <p>Si ya tienes una cuenta, inicia sesión para continuar.</p>
-                    <a href="{{ route('doctor.create') }}" class="btn btn-primary">Registrarse</a>
-                    <a href="{{ route('login') }}" class="btn btn-success">Iniciar sesión</a>
                 </div>
             </div>
         </div>
