@@ -18,6 +18,8 @@ class RoleSeeder extends Seeder
         $role2 = Role::create(['name'=> 'Doctor']);
         //$role3 = Role::create(['name'=> 'Guest']);
 
+        //Gestion de chat
+        Permission::create(['name' => 'chat.me'])->syncRoles([$role1, $role2]);
 
         //Gestion de pacientes
         Permission::create(['name' => 'paciente.index'])->syncRoles([$role1, $role2]);

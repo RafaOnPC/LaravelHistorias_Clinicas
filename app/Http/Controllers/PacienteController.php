@@ -39,6 +39,7 @@ class PacienteController extends Controller
             'address' => 'required|string|max:255',
             'phone' => 'required|string|max:9',
             'gender' => 'required|in:M,F',
+            'dni' => 'required|string|max:9'
         ],[
             'name.required' => 'El nombre es requerido',
             'name.string' => "El nombre debe ser texto",
@@ -48,6 +49,7 @@ class PacienteController extends Controller
             'address.string' => "La direccion debe ser texto",
             'phone.required' => 'El telefono es requerido',
             'gender.required' => 'El genero es requerido',
+            'dni.required' => 'El DNI es requerido',
         ]);
 
         // Crear un nuevo paciente
@@ -57,6 +59,7 @@ class PacienteController extends Controller
             'address' => $validatedData['address'],
             'phone' => $validatedData['phone'],
             'gender' => $validatedData['gender'],
+            'dni' => $validatedData['dni'],
         ]);
 
         $paciente = new Paciente();
@@ -77,7 +80,23 @@ class PacienteController extends Controller
     public function show(string $id)
     {
         $paciente = Paciente::findOrFail($id);
-        return view('paciente.show', compact('paciente'));
+        return view('pacientes.show', compact('paciente'));
+    }
+
+    public function mostrarExamenes(string $id)
+    {
+        // Obtener el paciente por ID
+        $paciente = Paciente::findOrFail($id);
+        
+        $historiasClinicas = $paciente->historiaClinica;
+        $examenes = [];
+    
+        foreach ($historiasClinicas as $historiaClinica) {
+            $examenes[] = $historiaClinica->examenes_medicos;
+        }
+        
+        // Retornar la vista con los exámenes
+        return view('pacientes.examenes', compact('paciente', 'examenes'));
     }
 
     /**
@@ -101,6 +120,7 @@ class PacienteController extends Controller
             'address' => 'required|string|max:255',
             'phone' => 'required|string|max:9',
             'gender' => 'required|in:M,F',
+            'dni' => 'required|string|max:9'
         ],[
             'name.required' => 'El nombre es requerido',
             'name.string' => "El nombre debe ser texto",
@@ -110,6 +130,7 @@ class PacienteController extends Controller
             'address.string' => "La direccion debe ser texto",
             'phone.required' => 'El telefono es requerido',
             'gender.required' => 'El genero es requerido',
+            'dni.required' => 'El DNI es requerido',
         ]);
 
         // Encontrar el paciente existente
@@ -122,6 +143,7 @@ class PacienteController extends Controller
                 'address' => $validatedData['address'],
                 'phone' => $validatedData['phone'],
                 'gender' => $validatedData['gender'],
+                'dni' => $validatedData['dni'],
             ]);
 
 

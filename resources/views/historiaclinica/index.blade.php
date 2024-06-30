@@ -60,7 +60,7 @@
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Está seguro de que desea eliminar esta historia clínica?')">Eliminar</button>
                                 </form>
-                                <a href="{{ route('clinica.pdf', $historiaClinica->id) }}" class="btn btn-success btn-sm">Ver</a>
+                                <a href="{{ route('clinica.pdf', $historiaClinica->id) }}" class="btn btn-success btn-sm" target="_blank">Ver</a>
                             </td>
                         </tr>
                     @endforeach

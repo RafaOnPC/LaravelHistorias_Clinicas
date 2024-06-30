@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string("antecedentes_medicos");
             $table->string("indicaciones_medicas");
             $table->string("diagnostico_medico");
+            $table->string("examenes_medicos");
             $table->string("alergias");
             $table->string("afiliacion");
             $table->string("cie");

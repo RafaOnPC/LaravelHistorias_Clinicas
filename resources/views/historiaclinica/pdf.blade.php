@@ -63,6 +63,11 @@
             <span class="field-label">Diagnóstico Médico:</span>
             <div class="field-value">{{ $historiaClinica->diagnostico_medico }}</div>
         </div>
+
+        <div class="field">
+            <span class="field-label">Examenes Médicos:</span>
+            <div class="field-value">{{ $historiaClinica->examenes_medicos }}</div>
+        </div>
     
         <div class="field">
             <span class="field-label">Alergias:</span>

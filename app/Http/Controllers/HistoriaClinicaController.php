@@ -39,6 +39,7 @@ class HistoriaClinicaController extends Controller
             'antecedentes_medicos'=> 'required|string|max:255',
             'indicaciones_medicas'=> 'required|string|max:255',
             'diagnostico_medico'=> 'required|string|max:255',
+            'examenes_medicos'=> 'required|string|max:255',
             'alergias'=> 'required|string|max:255',
             'afiliacion'=> 'required|string|max:255',
             "cie" => 'required|string|max:255',
@@ -48,6 +49,7 @@ class HistoriaClinicaController extends Controller
                 'antecedentes_medicos.required' => 'El campo es requerido',
                 'indicaciones_medicas.required' => 'El campo es requerido',
                 'diagnostico_medico.required' => 'El campo es requerido',
+                'examenes_medicos.required' => 'El campo es requerido',
                 'alergias.required' => 'El campo es requerido',
                 'afiliacion.required' => 'El campo es requerido',
                 'cie.required' => 'El campo es requerido',
@@ -61,6 +63,7 @@ class HistoriaClinicaController extends Controller
             $historiaClinica->antecedentes_medicos = $validatedData['antecedentes_medicos'];
             $historiaClinica->indicaciones_medicas = $validatedData['indicaciones_medicas'];
             $historiaClinica->diagnostico_medico = $validatedData['diagnostico_medico'];
+            $historiaClinica->examenes_medicos = $validatedData['examenes_medicos'];
             $historiaClinica->alergias = $validatedData['alergias'];
             $historiaClinica->afiliacion = $validatedData['afiliacion'];
             $historiaClinica->cie = $validatedData['cie'];
@@ -110,6 +113,7 @@ class HistoriaClinicaController extends Controller
             'antecedentes_medicos' => 'required|string|max:255',
             'indicaciones_medicas' => 'required|string|max:255',
             'diagnostico_medico' => 'required|string|max:255',
+            'examenes_medicos'=> 'required|string|max:255',
             'alergias' => 'required|string|max:255',
             'afiliacion' => 'required|string|max:255',
             'cie' => 'required|string|max:255',
@@ -119,6 +123,7 @@ class HistoriaClinicaController extends Controller
             'antecedentes_medicos.required' => 'El campo Antecedentes Médicos es requerido.',
             'indicaciones_medicas.required' => 'El campo Indicaciones Médicas es requerido.',
             'diagnostico_medico.required' => 'El campo Diagnóstico Médico es requerido.',
+            'examenes_medicos.required' => 'El campo es requerido',
             'alergias.required' => 'El campo Alergias es requerido.',
             'afiliacion.required' => 'El campo Afiliación es requerido.',
             'cie.required' => 'El campo CIE es requerido.',

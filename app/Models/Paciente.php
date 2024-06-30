@@ -15,6 +15,7 @@ class Paciente extends Model
         'name',
         'surname',
         'gender',
+        "dni",
         'address',
         'phone'
     ];

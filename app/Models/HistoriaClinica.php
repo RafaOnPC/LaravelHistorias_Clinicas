@@ -15,6 +15,7 @@ class HistoriaClinica extends Model
         'antecedentes_medicos',
         'indicaciones_medicas',
         'diagnostico_medico',
+        'examenes_medicos',
         'alergias',
         'afiliacion',
         "cie",

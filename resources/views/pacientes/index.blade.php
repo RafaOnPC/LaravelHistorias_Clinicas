@@ -17,8 +17,6 @@
             }, 5000);
         </script>
     @endif
-
-
 @stop
 
 @section('content')
@@ -53,11 +51,13 @@
                                 <td>{{ $paciente->gender == 'M' ? 'Masculino' : 'Femenino' }}</td>
                                 <td>
                                     <a href="{{ route('paciente.edit', $paciente->id) }}" class="btn btn-warning btn-sm">Editar</a>
+                                    <a href="{{ route('paciente.show', $paciente->id) }}" class="btn btn-warning btn-sm">Ver</a>
                                     <form action="{{ route('paciente.destroy', $paciente->id) }}" method="POST" style="display:inline;">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Está seguro de que desea eliminar este paciente?')">Eliminar</button>
                                     </form>
+                                    <a href="{{ route('paciente.examenes', $paciente->id) }}" class="btn btn-info btn-sm">Exámenes</a>
                                 </td>
                             </tr>
                         @endforeach
@@ -70,7 +70,6 @@
 
 @section('css')
     {{-- Add here extra stylesheets --}}
-    {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
 @stop
 
 @section('js')

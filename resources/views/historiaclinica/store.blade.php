@@ -43,6 +43,11 @@
             </div>
 
             <div class="mb-3">
+                <label for="examenes_medicos" class="form-label">Examenes Médicos</label>
+                <textarea id="examenes_medicos" name="examenes_medicos" class="form-control" placeholder="Ingrese los examenes medicos" required></textarea>
+            </div>
+
+            <div class="mb-3">
                 <label for="alergias" class="form-label">Alergias</label>
                 <textarea id="alergias" name="alergias" class="form-control" placeholder="Ingrese las alergias" required></textarea>
             </div>

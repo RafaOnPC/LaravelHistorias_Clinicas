@@ -17,6 +17,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/chat', function () {
+    return redirect()->away('http://localhost:3000');
+})->name('chat.me');
+
+
 Route::get("/clinica/pdf/{id}", [HistoriaClinicaController::class, 'pdf'])->name("clinica.pdf");
 
 Route::get('/dashboard', function () {
@@ -35,9 +40,11 @@ Route::middleware('auth')->group(function () {
 Route::get('/paciente', [PacienteController::class, 'index'])->middleware('can:paciente.index')->name('paciente.index');
 Route::get('/paciente/create', [PacienteController::class, 'create'])->middleware('can:paciente.create')->name('paciente.create');
 Route::post('/paciente', [PacienteController::class, 'store'])->name('paciente.store');
+Route::get('/paciente/show/{id}', [PacienteController::class, 'show'])->name('paciente.show');
 Route::get('/paciente/{id}', [PacienteController::class, 'edit'])->middleware('can:paciente.edit')->name('paciente.edit');
 Route::put('/paciente/{id}', [PacienteController::class, 'update'])->name('paciente.update');
 Route::delete('/paciente/{id}', [PacienteController::class, 'destroy'])->middleware('can:paciente.destroy')->name('paciente.destroy');
+Route::get('/paciente/{id}/examenes', [PacienteController::class, 'mostrarExamenes'])->name('paciente.examenes');
 
 //Doctor
 Route::get('/doctor', [DoctorController::class, 'index'])->middleware('can:doctor.index')->name('doctor.index');

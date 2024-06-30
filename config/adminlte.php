@@ -63,7 +63,7 @@ return [
     |
     */
 
-    'logo' => '<b>Clinic</b>Medic',
+    'logo' => '<b>CS:</b>"San Juan"',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -314,6 +314,16 @@ return [
             'route' => 'clinica.index',
             'icon' => 'fas fa-fw fa-user',
             'can' => 'clinica.index'
+        ],
+
+        [
+            'text' => 'Chat to me',
+            'route' => 'chat.me',
+            'icon' => 'fas fa-fw fa-user',
+            'can' => 'chat.me',
+            'attributes' => [
+                'target' => '_blank'
+            ]
         ],
 
         [

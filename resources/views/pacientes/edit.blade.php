@@ -50,6 +50,11 @@
             </div>
 
             <div class="mb-3">
+                <label for="dni" class="form-label">DNI</label>
+                <input type="text" id="dni" name="dni" class="form-control" placeholder="Ingrese el DNI del paciente" value="{{ $paciente->dni }}" required>
+            </div>
+
+            <div class="mb-3">
                 <label for="gender" class="form-label mr-2">Genero</label>
                 <select id="gender" name="gender" class="form-select" required>
                     <option value="M" {{ $paciente->gender == 'M' ? 'selected' : '' }}>Masculino</option>
