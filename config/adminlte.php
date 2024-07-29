@@ -306,7 +306,6 @@ return [
             'text' => 'Pacientes',
             'route' => 'paciente.index',
             'icon' => 'fas fa-fw fa-user',
-            'can' => 'paciente.index'
         ],
 
         [

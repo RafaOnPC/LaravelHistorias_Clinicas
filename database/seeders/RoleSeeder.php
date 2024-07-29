@@ -16,16 +16,16 @@ class RoleSeeder extends Seeder
     {
         $role1 = Role::create(['name' => 'Administrador']);
         $role2 = Role::create(['name'=> 'Doctor']);
-        //$role3 = Role::create(['name'=> 'Guest']);
+        //$role3 = Role::create(['name'=> 'Paciente']);
 
         //Gestion de chat
         Permission::create(['name' => 'chat.me'])->syncRoles([$role1, $role2]);
 
         //Gestion de pacientes
-        Permission::create(['name' => 'paciente.index'])->syncRoles([$role1, $role2]);
-        Permission::create(['name' => 'paciente.create'])->syncRoles([$role1, $role2]);
-        Permission::create(['name' => 'paciente.edit'])->syncRoles([$role1, $role2]);
-        Permission::create(['name' => 'paciente.destroy'])->syncRoles([$role1, $role2]);
+        //Permission::create(['name' => 'paciente.index'])->syncRoles([$role1, $role2]);
+        //Permission::create(['name' => 'paciente.create'])->syncRoles([$role1, $role2, $role3]);
+        //Permission::create(['name' => 'paciente.edit'])->syncRoles([$role1, $role2, $role3]);
+        //Permission::create(['name' => 'paciente.destroy'])->syncRoles([$role1, $role2]);
 
         //Gestion de doctor 
         Permission::create(['name' => 'doctor.index'])->syncRoles([$role1, $role2]);
@@ -41,6 +41,7 @@ class RoleSeeder extends Seeder
 
         //Invitado
         Permission::create(['name' => 'guest.index']);
+        //Permission::create(['name' => 'paciente.login'])->syncRoles([$role3]);
 
     }
 }
