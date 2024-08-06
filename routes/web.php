@@ -21,6 +21,13 @@ Route::get('/chat', function () {
     return redirect()->away('http://localhost:3000');
 })->name('chat.me');
 
+Route::get('/paciente/login', [PacienteController::class, 'showLoginForm'])->name('paciente.login');
+Route::post('/paciente/loginIn', [PacienteController::class, 'login'])->name('paciente.storing');
+Route::post('/paciente/logout', [PacienteController::class, 'logout'])->name('paciente.logout');
+Route::get('/paciente/nuevo/{paciente}', [PacienteController::class, 'nuevo'])->name('paciente.nuevo');
+Route::get('/pacientes/{id}', [PacienteController::class, 'editacion'])->name('paciente.editacion');
+Route::put('/pacientes/{id}', [PacienteController::class, 'actualizacion'])->name('paciente.actualizacion');
+
 
 Route::get("/clinica/pdf/{id}", [HistoriaClinicaController::class, 'pdf'])->name("clinica.pdf");
 
@@ -34,18 +41,32 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-
-
 //Pacientes
-Route::get('/paciente', [PacienteController::class, 'index'])->middleware('can:paciente.index')->name('paciente.index');
-Route::get('/paciente/create', [PacienteController::class, 'create'])->middleware('can:paciente.create')->name('paciente.create');
+Route::get('/paciente', [PacienteController::class, 'index'])->name('paciente.index');
+Route::get('/paciente/create', [PacienteController::class, 'create'])->name('paciente.create');
 Route::post('/paciente', [PacienteController::class, 'store'])->name('paciente.store');
 Route::get('/paciente/show/{id}', [PacienteController::class, 'show'])->name('paciente.show');
-Route::get('/paciente/{id}', [PacienteController::class, 'edit'])->middleware('can:paciente.edit')->name('paciente.edit');
+Route::get('/paciente/{id}', [PacienteController::class, 'edit'])->name('paciente.edit');
 Route::put('/paciente/{id}', [PacienteController::class, 'update'])->name('paciente.update');
-Route::delete('/paciente/{id}', [PacienteController::class, 'destroy'])->middleware('can:paciente.destroy')->name('paciente.destroy');
+Route::delete('/paciente/{id}', [PacienteController::class, 'destroy'])->name('paciente.destroy');
 Route::get('/paciente/{id}/examenes', [PacienteController::class, 'mostrarExamenes'])->name('paciente.examenes');
 
+
+/* 
+//Pacientes - Auth
+Route::prefix('paciente')->group(function () {
+    Route::get('login', [PacienteController::class, 'showLoginForm'])->name('paciente.login');
+    Route::post('login', [PacienteController::class, 'login']);
+    Route::post('logout', [PacienteController::class, 'logout'])->name('paciente.logout');
+
+    Route::middleware('auth:paciente')->group(function () {
+        // Añadir rutas protegidas para pacientes
+        Route::get('dashboard', function () {
+            return view('paciente.dashboard'); // Crear la vista de dashboard para pacientes
+        })->name('paciente.dashboard');
+    });
+});
+*/
 //Doctor
 Route::get('/doctor', [DoctorController::class, 'index'])->middleware('can:doctor.index')->name('doctor.index');
 Route::get('/doctor/create', [DoctorController::class, 'create'])->name('doctor.create');
@@ -65,6 +86,6 @@ Route::delete('/clinica/{id}', [HistoriaClinicaController::class, 'destroy'])->m
 //Invitado
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('inicio');
 
 require __DIR__.'/auth.php';

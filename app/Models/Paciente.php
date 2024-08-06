@@ -2,12 +2,15 @@
 
 namespace App\Models;
 
+use Illuminate\Auth\Authenticatable;
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Permission\Traits\HasRoles;
 
-class Paciente extends Model
+class Paciente extends Model implements AuthenticatableContract
 {
-    use HasFactory;
+    use HasFactory, Authenticatable, HasRoles;
 
     protected $table = "pacientes";
 
@@ -17,7 +20,17 @@ class Paciente extends Model
         'gender',
         "dni",
         'address',
-        'phone'
+        'phone', 
+        'email', 
+        'password'
+    ];
+
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
+
+    protected $casts = [
+        'email_verified_at' => 'datetime',
     ];
 
     //Relaciones entre entidades
