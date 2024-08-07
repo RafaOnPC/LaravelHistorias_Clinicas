@@ -22,7 +22,7 @@ class RoleSeeder extends Seeder
         Permission::create(['name' => 'chat.me'])->syncRoles([$role1, $role2]);
 
         //Gestion de pacientes
-        //Permission::create(['name' => 'paciente.index'])->syncRoles([$role1, $role2]);
+        Permission::create(['name' => 'paciente.index'])->syncRoles([$role1, $role2]);
         //Permission::create(['name' => 'paciente.create'])->syncRoles([$role1, $role2, $role3]);
         //Permission::create(['name' => 'paciente.edit'])->syncRoles([$role1, $role2, $role3]);
         //Permission::create(['name' => 'paciente.destroy'])->syncRoles([$role1, $role2]);

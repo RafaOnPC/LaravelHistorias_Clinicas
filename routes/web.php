@@ -28,7 +28,6 @@ Route::get('/paciente/nuevo/{paciente}', [PacienteController::class, 'nuevo'])->
 Route::get('/pacientes/{id}', [PacienteController::class, 'editacion'])->name('paciente.editacion');
 Route::put('/pacientes/{id}', [PacienteController::class, 'actualizacion'])->name('paciente.actualizacion');
 
-
 Route::get("/clinica/pdf/{id}", [HistoriaClinicaController::class, 'pdf'])->name("clinica.pdf");
 
 Route::get('/dashboard', function () {
@@ -67,6 +66,7 @@ Route::prefix('paciente')->group(function () {
     });
 });
 */
+
 //Doctor
 Route::get('/doctor', [DoctorController::class, 'index'])->middleware('can:doctor.index')->name('doctor.index');
 Route::get('/doctor/create', [DoctorController::class, 'create'])->name('doctor.create');
