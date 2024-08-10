@@ -6,6 +6,7 @@ use App\Models\Paciente;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class PacienteController extends Controller
 {
@@ -181,11 +182,7 @@ class PacienteController extends Controller
         return view('pacientes.login');
     }
 
-    public function nuevo($id)
-    {
-        $paciente = Paciente::findOrFail($id);
-        return view('pacientes.nuevo', compact('paciente'));
-    }
+    
 
     public function actualizacion(Request $request, string $id)
     {
@@ -251,5 +248,20 @@ class PacienteController extends Controller
 
         return redirect('/');
     }
+
+    public function showClinic(Paciente $paciente)
+    {
+        $historia_clinica = $paciente->historiaClinica();   
+        return $historia_clinica;
+    }
+
+    public function nuevo($id)
+    {
+        $paciente = Paciente::findOrFail($id);
+        $historia = $this->showClinic($paciente)->first();
+        return view('pacientes.nuevo', compact('paciente', 'historia'));
+    }
+
+    
 
 }
