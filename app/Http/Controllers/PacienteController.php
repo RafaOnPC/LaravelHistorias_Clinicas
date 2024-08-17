@@ -78,7 +78,7 @@ class PacienteController extends Controller
         $paciente->update();
 
         // Redirigir a la lista de pacientes con un mensaje de éxito
-        return redirect()->route('paciente.login')->with('success', 'Paciente creado exitosamente.');
+        return redirect()->route('inicio')->with('success', 'Paciente creado exitosamente.');
     }
 
     /**

@@ -62,9 +62,16 @@
                     </div>
 
                     <div class="d-flex justify-content-between">
-                        <a href="{{ route('clinica.pdf', $historia->id) }}" class="btn btn-success btn-sm" target="_blank">Ver Historia</a>
-                        <a href="{{ route('paciente.editacion', $paciente->id) }}" class="btn btn-primary">Editar Datos</a>
-                        <a href="{{ route('inicio') }}" class="btn btn-danger">Cerrar Sesión</a>
+                        @if ($historia != null)
+                            <a href="{{ route('clinica.pdf', $historia->id) }}" class="btn btn-success btn-sm" target="_blank">Ver Historia</a>
+                            <a href="{{ route('paciente.editacion', $paciente->id) }}" class="btn btn-primary">Editar Datos</a>
+                            <a href="{{ route('inicio') }}" class="btn btn-danger">Cerrar Sesión</a>
+                        @else
+                            <a href="{{ route('paciente.editacion', $paciente->id) }}" class="btn btn-primary">Editar Datos</a>
+                            <a href="{{ route('inicio') }}" class="btn btn-danger">Cerrar Sesión</a>
+                        @endif
+                        
+                        
                     </div>
                 </form>
             </div>

@@ -21,6 +21,9 @@
 
 @section('content')
     <div class="card">
+        <div class="card-header">
+            <a href="{{ route('paciente.create') }}" class="btn btn-primary">Agregar Paciente</a>
+        </div>
         <div class="card-body">
             @if ($pacientes->isEmpty())
                 <p>No hay pacientes registrados.</p>
